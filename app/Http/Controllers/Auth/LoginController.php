@@ -25,14 +25,9 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials))
         {
-            $success = true;
-            $message = 'Вы успешно вошли!';
-            return redirect()->intended('applications')>with(['success' => $success, 'message' => $message]);
-        } else {
-            $success = false;
-            $message = 'Упс! Ошибка при авторизации!';
-            return back()->with(['success' => $success, 'message' => $message]);
+            return redirect()->intended('tickets');
         }
+        return back()->with(['error' => 'Ошибка!']);
     }
 
     public function logout()

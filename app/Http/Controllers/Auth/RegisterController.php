@@ -34,7 +34,7 @@ class RegisterController extends Controller
         } else {
             $success = true;
             $message = 'Вы успешно зарегистрировались!';
-            return redirect()->intended('applications')>with(['success' => $success, 'message' => $message]);
+            return redirect()->intended('tickets')>with(['success' => $success, 'message' => $message]);
         }
     }
 }
