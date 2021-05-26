@@ -1,23 +1,17 @@
 <p align="center">Тестовое задание Small Skiff</p>
 <!-- <p align="center"></p> -->
-<h1 align="left">Страница регистрации</h1>
-<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/register.png
-?raw=true" /></p>
-<h1 align="left">Страница авторизации</h1>
-<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/login.png
-?raw=true" /></p>
-<h1 align="left">Страница запросов</h1>
-<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/admin-tickets.png
-?raw=true" /></p>
-<h1 align="left">Страница пользователей</h1>
-<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/admin-users.png
-?raw=true" /></p>
-<h1 align="left">Страница ролей</h1>
-<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/admin-roles.png
-?raw=true" /></p>
-<h1 align="left">Добавление нового запроса</h1>
-<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/add-tickets.png
-?raw=true" /></p>
+<p align="left">Страница регистрации</p>
+<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/register.png?raw=true" /></p>
+<p align="left">Страница авторизации</p>
+<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/login.png?raw=true" /></p>
+<p align="left">Страница запросов</p>
+<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/admin-tickets.png?raw=true" /></p>
+<p align="left">Страница пользователей</p>
+<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/admin-users.png?raw=true" /></p>
+<p align="left">Страница ролей</p>
+<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/admin-roles.png?raw=true" /></p>
+<p align="left">Добавление нового запроса</p>
+<p align="center"><img src="https://github.com/zhanyzak/small-test/blob/main/public/screens/add-tickets.png?raw=true" /></p>
 <hr />
 <p align="left">Запустите эти команды:</p>
 <p align="left">1. composer update</p>
