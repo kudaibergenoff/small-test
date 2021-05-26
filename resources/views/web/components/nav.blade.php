@@ -18,9 +18,10 @@
           <div class="hidden sm:block sm:ml-6">
             <div class="flex">
               <a href="{{route('tickets')}}" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white @if(Route::is('tickets')) bg-indigo-300 @endif hover:text-white hover:bg-indigo-300 focus:outline-none focus:text-white focus:bg-indigo-700 transition duration-150 ease-in-out">Заявки</a>
-              {{-- @role('admin')
+              @role('admin')
               <a href="{{route('users')}}" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-white @if(Route::is('users')) bg-indigo-300 @endif hover:text-white hover:bg-indigo-300 focus:outline-none focus:text-white focus:bg-indigo-200 transition duration-150 ease-in-out">Пользователи</a>
-              @endrole --}}
+              <a href="{{route('roles')}}" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-white @if(Route::is('roles')) bg-indigo-300 @endif hover:text-white hover:bg-indigo-300 focus:outline-none focus:text-white focus:bg-indigo-200 transition duration-150 ease-in-out">Роли</a>
+              @endrole
             </div>
           </div>
         </div>

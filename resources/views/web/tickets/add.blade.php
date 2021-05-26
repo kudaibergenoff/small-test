@@ -1,6 +1,6 @@
 @extends('web.main')
 
-@section('title', 'Все запросы')
+@section('title', 'Новый запрос')
 
 @section('content')
     <h1 class="py-6 text-2xl">Новый запрос</h1>

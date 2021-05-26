@@ -3,10 +3,10 @@
 @section('title', 'Все запросы')
 
 @section('content')
-    <h1 class="py-6 text-2xl">Все запросы</h1>
+    <h1 class="py-4 text-2xl">Все запросы</h1>
     @role('client')
     <div class="py-4">
-        <a href="{{route('tickets.create')}}">Создать новый запрос</a>
+        <a class="inline-flex items-center h-12 ml-0 px-4 py-3 m-2 text-sm @if(count($check_ticket_time) > 0) cursor-not-allowed bg-gray-500 hover:bg-gray-400 @else bg-indigo-500 hover:bg-indigo-400 @endif text-white transition-colors duration-150 rounded-lg focus:shadow-outline"  @if(count($check_ticket_time) > 0) href="#" @else href="{{route('tickets.create')}} @endif">Создать новый запрос</a>
     </div>
     @endrole
     <table class="min-w-max w-full table-auto">
@@ -19,71 +19,60 @@
                 <th class="py-3 px-6 text-center">Сообщение</th>
                 <th class="py-3 px-6 text-center">Дата созд</th>
                 <th class="py-3 px-6 text-center">Статус</th>
-                <th class="py-3 px-6 text-left">Имя менеджера</th>
-                <th class="py-3 px-6 text-center">Действие</th>
+                {{-- <th class="py-3 px-6 text-left">Имя менеджера</th>
+                <th class="py-3 px-6 text-center">Действие</th> --}}
             </tr>
         </thead>
-        <tbody class="text-gray-600 text-sm font-light">
+        <tbody class="text-gray-600 text-sm font-light relative">
+            @forelse ($tickets as $ticket)
             <tr class="border-b border-gray-200 hover:bg-gray-100">
                 <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
-                        <span class="font-medium">1000</span>
+                        <span class="font-medium">{{ $ticket->id ?? '' }}</span>
                     </div>
                 </td>
                 <td class="py-3 px-6 text-left">
+                    @foreach ($ticket->clients as $client)
                     <div class="flex items-center">
-                        <span>Eshal Rosas</span>
-                    </div>
+                        <span>{{ $client->name ?? '' }}</span>
+                    </div>   
+                    @endforeach
                 </td>
                 <td class="py-3 px-6 text-center">
-                    <div class="flex items-center justify-center">
-                        admin@admin.com
-                    </div>
-                </td>
-                <td class="py-3 px-6 text-center">
-                    <div class="flex items-center justify-center">
-                        admin@admin.com
-                    </div>
-                </td>
-                <td class="py-3 px-6 text-center">
-                    <div class="flex items-center justify-center">
-                        admin@admin.com
-                    </div>
-                </td>
-                <td class="py-3 px-6 text-center">
-                    <div class="flex items-center justify-center">
-                        admin@admin.com
-                    </div>
-                </td>
-                <td class="py-3 px-6 text-center">
-                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                </td>
-                <td class="py-3 px-6 text-left">
+                    @foreach ($ticket->clients as $client)
                     <div class="flex items-center">
-                        <span>Eshal Rosas</span>
+                        <span>{{ $client->email ?? '' }}</span>
+                    </div>   
+                    @endforeach
+                </td>
+                <td class="py-3 px-6 text-center">
+                    <div class="flex items-center justify-center">
+                        <a class="text-blue-400 text-underline" href="{{route('tickets.show', $ticket->id)}}">{{ $ticket->subject ?? '' }}</a>
                     </div>
                 </td>
                 <td class="py-3 px-6 text-center">
-                    <div class="flex item-center justify-center">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                        </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                            </svg>
-                        </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
-                        </div>
+                    <div class="flex items-center justify-center">
+                        {{ $ticket->mssg ?? '' }}
                     </div>
+                </td>
+                <td class="py-3 px-6 text-center">
+                    <div class="flex items-center justify-center">
+                        {{ $ticket->created_at ?? '' }}
+                    </div>
+                </td>
+                <td class="py-3 px-6 text-center">
+                    @if ($ticket->status === 'pending')
+                    <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">В ожидании</span>
+                    @elseif($ticket->status == 'answered')
+                    <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Отвечен</span>
+                    @elseif($ticket->status === 'closed')
+                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Закрыт</span>  
+                    @endif
                 </td>
             </tr>
+            @empty          
+            <div class="bg-green-200 text-green-600 px-2 py-1 relative">Пока данных нет!</div>             
+            @endforelse
         </tbody>
     </table>
 @endsection
